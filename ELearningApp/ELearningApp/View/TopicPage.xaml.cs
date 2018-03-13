@@ -31,7 +31,7 @@ namespace ELearningApp.View
             }            
 
             SetBusyIndicator(false);
-
+            //set indicator
         }
 
         private void ListTopics_ItemSelected(object sender, SelectedItemChangedEventArgs e)
