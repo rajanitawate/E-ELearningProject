@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ELearningApp"
+             x:Class="ELearningApp.MainPage">
+    <ContentPage.Content>
+        <ListView 
+        ItemsSource="{Binding List}"
+        IsGroupingEnabled="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                  
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            
+                            <StackLayout HorizontalOptions="FillAndExpand" Spacing="1">
+                                <Label Text="{Binding TopicName}" FontSize="Medium" TextColor="#005569" VerticalOptions="Center" />
+                               
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <RelativeLayout. Padding="16,8,8,16" HorizontalOptions="FillAndExpand" BackgroundColor="#E2F5F9">
+                            <Label Text="{Binding MajorTopicTitle}"
+                               FontSize="Large"
+                               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.1}"
+                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=6}"  />
+                
+                            <RelativeLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:Reference currentPage}, Path=BindingContext.HeaderClickCommand}"  NumberOfTapsRequired="1" CommandParameter="{Binding .}"/>
+                            </RelativeLayout.GestureRecognizers>
+                        </RelativeLayout.>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+        </ListView>
+    </ContentPage.Content>
+    <!--<ContentPage.Content>
+        <ListView 
+        x:Name="listMTopic"
+        IsGroupingEnabled="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout HorizontalOptions="FillAndExpand" Spacing="1">
+                                <Label Text="{Binding TopicName}" FontSize="Medium" TextColor="#005569" VerticalOptions="Center" />
+                                <Label Text="{Binding TopicId}" FontSize="Micro" TextColor="#005569" VerticalOptions="Center" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout>
+                            <Label x:Name="lblMaster" Text="{Binding MajorTopicTitle}">
+                                --><!--<Label.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>--><!--
+                            </Label>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+        </ListView>
+    </ContentPage.Content>-->
+
+</ContentPage>

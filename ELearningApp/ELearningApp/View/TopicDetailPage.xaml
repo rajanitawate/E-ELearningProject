@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ELearningApp.View.TopicDetailPage"
+             xmlns:forms="clr-namespace:Plugin.MediaManager.Forms;assembly=Plugin.MediaManager.Forms"
+             xmlns:htmlLable="clr-namespace:Plugin.HtmlLabel;assembly=Plugin.HtmlLabel"  
+             xmlns:pdfViewerSample="clr-namespace:ELearningApp;assembly=ELearningApp"
+            
+             Title="Topic Details">
+    <ContentPage.Content>
+        <ScrollView Orientation="Vertical">
+            <Grid>
+                <StackLayout Margin="10,10,10,10" x:Name="stkContent" IsVisible="False">
+                    <htmlLable:HtmlLabel x:Name="TopicContent" htmlLable:HtmlLabel.RemoveHtmlTags="True"/>
+                </StackLayout>
+
+                <StackLayout IsVisible="False" Margin="10,10,10,10" x:Name="stkVideo" >
+                    <forms:VideoView  x:Name="videoView"  HorizontalOptions="FillAndExpand" 
+                         VerticalOptions="FillAndExpand" AspectMode="AspectFill"/>
+                    <ProgressBar x:Name="ProgressBar" HorizontalOptions="FillAndExpand" VerticalOptions="End"/>
+                    <Image x:Name="imgControl" Source="pause.png" HeightRequest="40" WidthRequest="40">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="PlayPauseClicked"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <!-- xmlns:octane="clr-namespace:Octane.Xamarin.Forms.VideoPlayer;assembly=Octane.Xamarin.Forms.VideoPlayer"
+                        <octane:VideoPlayer AutoPlay="True" x:Name="videoplay" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>-->
+                </StackLayout>
+
+                <StackLayout x:Name="stkImage" IsVisible="False">
+                    <Image x:Name="TopicImg" HeightRequest="300" WidthRequest="300" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" />
+                </StackLayout>
+
+                <StackLayout x:Name="stkPDF" IsVisible="False">
+                    <WebView x:Name="TopicPdf" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                    <!--<pdfViewerSample:PdfView x:Name="PdfDocView" VerticalOptions="FillAndExpand" />-->
+                </StackLayout>
+
+                <ActivityIndicator Color="Red"  x:Name="BusyIndicator" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

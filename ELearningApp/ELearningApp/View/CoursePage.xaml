@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ELearningApp.View.CoursePage"
+              BackgroundImage="back.jpg"
+             Title="Course List">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout Margin="10,0,10,0">
+                <Label x:Name="lbltxt" FontSize="18" Margin="10" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" IsVisible="False" Text="No Data Found!"></Label>
+                <ListView  x:Name="listViewGrid"   
+                   SeparatorVisibility="Default" 
+                   VerticalOptions="FillAndExpand" 
+                   HasUnevenRows="True" 
+                   ItemSelected="ListCorse_ItemSelected">
+                    <ListView.ItemTemplate>
+
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <Frame  Padding="5" IsClippedToBounds="True" HasShadow="True" BackgroundColor="White" Margin="0,5,0,5">
+                                        <StackLayout HeightRequest="50"  Orientation="Horizontal">
+
+                                            <Image Source="{Binding Imagepath}" HeightRequest="120" WidthRequest="90" />
+                                            <Label TextColor="Black" FontSize="15" VerticalOptions="CenterAndExpand" Text="{Binding CourseName}"/>
+
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+
+                    </ListView.ItemTemplate>
+                    <ListView.Footer>
+                        <StackLayout Orientation="Horizontal"/>
+                    </ListView.Footer>
+                </ListView>
+            </StackLayout>
+            <ActivityIndicator Color="Red"  x:Name="BusyIndicator" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Grid>
+
+
+    </ContentPage.Content>
+</ContentPage>

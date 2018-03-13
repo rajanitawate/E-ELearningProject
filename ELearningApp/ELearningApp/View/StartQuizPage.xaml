@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ELearningApp.View.StartQuizPage"
+             BackgroundImage="backquiz.jpg"
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True"
+             Title="StartQuiz">
+    <AbsoluteLayout VerticalOptions="FillAndExpand" x:Name="Page">
+        <StackLayout x:Name="stackMain" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="White">
+
+            <!--<ContentPage.Content>-->
+        <Grid>
+            <Label x:Name="lbltxt" FontSize="18" Margin="10" TextColor="White" HorizontalOptions="CenterAndExpand"  IsVisible="False" Text="No Data Found!"></Label>
+            <StackLayout x:Name="stackQuestion" IsVisible="False">
+                    <!--<Frame  Padding="5" IsClippedToBounds="True" HasShadow="True" BackgroundColor="White" Margin="0,5,0,5">-->
+                    <StackLayout x:Name="stackList">
+                        <Frame Margin="5,5,5,5"  IsClippedToBounds="True" HasShadow="True" BackgroundColor="White">
+                            <StackLayout  Margin="0,10,0,0" Orientation="Horizontal">
+                                <Label FontAttributes="Bold" FontSize="15" x:Name="lblquesNo" Margin="5,0,5,5" />
+                                <Label FontAttributes="Bold" FontSize="15" Margin="10,0,0,0" x:Name="lblQuestion"/>
+                            </StackLayout>
+                        </Frame>
+                        <ListView x:Name="listAns" HasUnevenRows="True" ItemSelected="ListItem_Selected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <ViewCell.View>
+                                            <Frame   IsClippedToBounds="True" HasShadow="True" BackgroundColor="White" Margin="5,5,5,5">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <!--<Image x:Name="rdbtn" Source="un_radio.png"/>-->
+                                                    <Label x:Name="lblAnswer" Text="{Binding Answer}" Margin="10,0,0,0"/>
+                                                    <Switch IsToggled="{Binding IsSelected}" HorizontalOptions="EndAndExpand" Margin="10,0,0,0"  />
+                                                </StackLayout>
+                                            </Frame>
+                                        </ViewCell.View>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.Footer>
+                                <StackLayout Orientation="Horizontal"/>
+                            </ListView.Footer>
+                        </ListView>
+                    </StackLayout>
+                    <!--</Frame>-->
+                    <Image Source="submit.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="End" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="UpBlue_Tapped"/>
+                            <PanGestureRecognizer PanUpdated="UpBlue_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <!--<Button VerticalOptions="EndAndExpand" Margin="5,0,5,5" BackgroundColor="DeepPink" x:Name="btnSubmit" Text="Submit" TextColor="White" Clicked="BtnSubmit_Clicked"/>-->
+                </StackLayout>
+
+                <ActivityIndicator  x:Name="BusyIndicator" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Grid>
+        </StackLayout>
+      
+            <StackLayout IsVisible="False"   x:Name="PageDown" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+                     Orientation="Vertical" VerticalOptions="EndAndExpand" Spacing="0">
+            <!--<ScrollView Orientation="Vertical" HeightRequest="250">-->
+                <StackLayout HeightRequest="250" BackgroundColor="White">
+                    <Image Source="save.png" HeightRequest="50" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="DownWhite_Tapped"/>
+                        <PanGestureRecognizer PanUpdated="DownWhite_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                    <StackLayout Margin="0,0,0,10" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" x:Name="rightAns" IsVisible="False">
+                        <Image HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="80" Source="congo.jpg"/>
+                        <Label HorizontalOptions="CenterAndExpand" FontSize="Large" FontAttributes="Bold" TextColor="Green" x:Name="txtrightAns"/>
+                    </StackLayout>
+                    <StackLayout x:Name="wrongAns" IsVisible="False">
+                        <Image HorizontalOptions="Center" HeightRequest="100" WidthRequest="100" Source="opps.jpg"/>
+                        <Label HorizontalOptions="CenterAndExpand" FontSize="15" FontAttributes="Bold" TextColor="Red" Text="Your Answer Is Wrong"/>
+                        <Label Margin="10,0,0,10" FontSize="12" HorizontalOptions="CenterAndExpand" x:Name="txtwrongAns" />
+                    </StackLayout>
+
+                </StackLayout>
+            <!--</ScrollView>-->
+        </StackLayout>
+       
+    </AbsoluteLayout>
+
+
+    <!--</ContentPage.Content>-->
+
+</ContentPage>

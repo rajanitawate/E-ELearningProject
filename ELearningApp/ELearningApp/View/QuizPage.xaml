@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ELearningApp.View.QuizPage"
+             BackgroundImage="back.jpg"
+             Icon="ic_quizhead.png"
+             Title="Quiz">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <Image Margin="0,20,0,0" x:Name="ChangingImage" Source="{Binding namesList}" HeightRequest="150" WidthRequest="250"></Image>
+
+                <Frame BackgroundColor="White" Padding="5"  HorizontalOptions="FillAndExpand" IsClippedToBounds="True" HasShadow="True" Margin="5,20,5,5">
+
+                    <StackLayout Margin="5,20,5,10" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                        <Picker x:Name="subjectPick" Title="Select subject" />
+                        <Picker x:Name="coursePick" Title="Select Course" />
+                        <Button Margin="0,10,0,10" TextColor="White" BackgroundColor="DeepPink"
+                        x:Name="btnstart" Text="Start" Clicked="Btnstart_Clicked"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <ActivityIndicator  x:Name="BusyIndicator" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

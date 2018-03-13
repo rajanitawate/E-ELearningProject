@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+              BackgroundImage="back.jpg"
+             x:Class="ELearningApp.View.RegisterPage"
+            >
+    <ContentPage.Content>
+        <Grid>
+        <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image HeightRequest="30" Margin="10,15,-15,0" WidthRequest="30"   VerticalOptions="Center" x:Name="backimg" Source="backarrow.png">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="bactap_clicked"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label  TextColor="White" VerticalOptions="Center" Margin="-35,15,0,0" HorizontalOptions="CenterAndExpand" FontSize="20" Text="Register" ></Label>
+                </StackLayout>
+          
+            <Frame BackgroundColor="White" Padding="5" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" IsClippedToBounds="True" HasShadow="True" Margin="5,5,5,5">
+                <StackLayout Margin="5,15,5,10" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                    <Image Source="loginpage.jpg" WidthRequest="100 " HeightRequest="100"></Image>
+                    <Entry x:Name="entFName" Placeholder="Enter First Name" TextColor="Black"></Entry>
+                    <Entry x:Name="entUName" Placeholder="Enter User Name" TextColor="Black"></Entry>
+                    <Entry x:Name="entMobile" Placeholder="Enter Mobile No." Keyboard="Numeric" TextColor="Black"></Entry>
+                    <Entry x:Name="entEmail" Placeholder="Enter Email Id" Keyboard="Email" TextColor="Black"></Entry>
+                    <Entry x:Name="entPassword" Placeholder="Enter Password" IsPassword="True" TextColor="Black"></Entry>
+                    <Entry x:Name="entCPassword" Placeholder="Enter Confirm Password" IsPassword="True" TextColor="Black"></Entry>
+                    <Button TextColor="White" Text="Register" BackgroundColor="DeepPink" x:Name="btnregister" Clicked="BtnRegister_Clicked"></Button>
+                </StackLayout>
+            </Frame>
+           
+      
+        </StackLayout>
+            <ActivityIndicator  x:Name="BusyIndicator" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

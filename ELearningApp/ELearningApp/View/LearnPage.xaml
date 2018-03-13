@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ELearningApp.View.LearnPage"
+             xmlns:controls="clr-namespace:HorizontalList;assembly=HorizontalList"
+             Icon="learn.png"
+             BackgroundImage="back.jpg"
+             Title="Learn">
+
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout Margin="10,0,10,0" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="White">
+                <ListView  x:Name="listsubj" SeparatorVisibility="Default" VerticalOptions="FillAndExpand" ItemSelected="Listsubj_ItemSelected" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+
+                                    <Frame Padding="5" IsClippedToBounds="True" HasShadow="True" BackgroundColor="White" Margin="0,5,0,5">
+                                        <StackLayout Margin="0,10,0,10" Orientation="Vertical">
+                                            <Label TextColor="Black" Margin="10,0,0,10" Text="{Binding SubjectName}"/>
+                                        </StackLayout>
+                                    </Frame>
+
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.Footer>
+                        <StackLayout Orientation="Horizontal"/>
+                    </ListView.Footer>
+                </ListView>
+            </StackLayout>
+
+            <ActivityIndicator  x:Name="BusyIndicator" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>
+
+
