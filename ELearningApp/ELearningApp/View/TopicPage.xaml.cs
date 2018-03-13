@@ -28,8 +28,7 @@ namespace ELearningApp.View
                 lbltxt.IsVisible = false;
                 stackList.IsVisible = true;
                 listTopics.ItemsSource = majorTopicInfo.listTopic;
-            }
-            
+            }            
 
             SetBusyIndicator(false);
 
